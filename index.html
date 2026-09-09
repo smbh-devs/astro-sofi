@@ -2,13 +2,14 @@
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>✨Софія | Астрологічний аналіз</title>
 <meta name="description" content="Наставник духовного розвитку. 8000+ учнів та клієнтів. Допомагаю через астрологію налагодити любов, фінанси та здоров'я.">
 <meta property="og:title" content="✨Софія | Астрологічний аналіз">
 <meta property="og:description" content="Наставник духовного розвитку. 8000+ учнів та клієнтів. Допомагаю через астрологію налагодити любов, фінанси та здоров'я.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#D9E5F1">
+<link rel="preload" as="image" href="assets/sofia.webp" type="image/webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,10 +18,13 @@
 <body>
 <main class="card">
   <div class="photo">
-    <img src="assets/sofia.jpg" alt="Софія, астролог">
+    <picture>
+      <source srcset="assets/sofia.webp" type="image/webp">
+      <img src="assets/sofia.jpg" width="896" height="1200" alt="Софія, астролог" fetchpriority="high" decoding="async">
+    </picture>
   </div>
   <section class="content">
-    <h1>✨Софія | Астрологічний аналіз</h1>
+    <h1><span class="name">✨Софія</span><span class="sep" aria-hidden="true"> | </span><span class="sub">Астрологічний аналіз</span></h1>
     <div class="rule"></div>
     <p class="role">Наставник духовного <span style="white-space:nowrap">розвитку🙏</span></p>
     <p class="desc"><b>8000+ учнів та клієнтів.</b> Допомагаю через астрологію налагодити любов, фінанси та здоров'я.</p>

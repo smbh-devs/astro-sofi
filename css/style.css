@@ -21,11 +21,12 @@ body{
     radial-gradient(900px 700px at 100% 0%, var(--bg-b) 0%, transparent 60%),
     radial-gradient(1000px 700px at 50% 110%, var(--bg-c) 0%, transparent 60%),
     #EEF0F5;
+  min-height:100vh;
   min-height:100dvh;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:24px 16px;
+  padding:16px 12px calc(16px + env(safe-area-inset-bottom));
   line-height:1.5;
 }
 .card{
@@ -33,22 +34,23 @@ body{
   max-width:960px;
   background:linear-gradient(160deg,#E2ECF6 0%,var(--card) 55%,#D2DFEE 100%);
   border:1px solid var(--card-edge);
-  border-radius:28px;
-  padding:24px;
+  border-radius:24px;
+  padding:18px;
   box-shadow:0 30px 70px -30px rgba(35,74,116,.35);
   display:grid;
   grid-template-columns:1fr;
-  gap:22px;
+  gap:16px;
 }
 .photo{
   width:min(86%,320px);
-  aspect-ratio:3/4;
+  aspect-ratio:1/1;
   margin:0 auto;
   border-radius:20px;
   overflow:hidden;
   box-shadow:0 18px 40px -18px rgba(35,74,116,.45);
-  outline:6px solid rgba(255,255,255,.6);
+  outline:4px solid rgba(255,255,255,.6);
 }
+.photo picture{display:block;width:100%;height:100%}
 .photo img{
   width:100%;height:100%;
   object-fit:cover;
@@ -60,8 +62,8 @@ body{
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:16px;
-  padding:0 4px 8px;
+  gap:12px;
+  padding:0 2px 6px;
 }
 h1{
   font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;
@@ -69,9 +71,12 @@ h1{
   font-size:clamp(30px,6vw,44px);
   line-height:1.12;
   color:var(--navy-deep);
+  text-wrap:balance;
 }
+h1 .sep{display:none}
+h1 .sub{display:block;font-size:.68em;font-weight:500;margin-top:.15em}
 .rule{width:56px;height:2px;background:var(--gold);border-radius:2px;margin:2px 0}
-.role{font-weight:600;font-size:17px;color:var(--navy)}
+.role{font-weight:600;font-size:16px;color:var(--navy)}
 .desc{font-size:17px;color:var(--muted);max-width:34ch}
 .desc b{color:var(--text);font-weight:700}
 .btn{
@@ -93,6 +98,9 @@ h1{
   white-space:nowrap;
   box-shadow:0 14px 30px -12px rgba(46,90,138,.7);
   transition:transform .15s ease, background .15s ease, box-shadow .15s ease;
+  -webkit-tap-highlight-color:transparent;
+  position:sticky;
+  bottom:calc(12px + env(safe-area-inset-bottom));
 }
 .btn .ic{
   width:32px;height:32px;
@@ -105,11 +113,17 @@ h1{
 .btn:hover{background:var(--navy-deep);transform:translateY(-1px)}
 .btn:active{transform:translateY(0)}
 .btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media (min-width:400px){
+  .card{padding:24px;border-radius:28px}
+  .role{font-size:17px}
+}
 @media (min-width:760px){
   .card{grid-template-columns:380px 1fr;align-items:center;gap:40px;padding:32px}
-  .photo{width:100%;margin:0}
+  .photo{width:100%;margin:0;aspect-ratio:3/4;outline-width:6px}
   .content{text-align:left;align-items:flex-start;padding:8px 8px 8px 0;gap:18px}
-  .btn{width:auto;min-width:300px}
+  h1 .sep{display:inline}
+  h1 .sub{display:inline;font-size:1em;font-weight:inherit;margin:0}
+  .btn{width:auto;min-width:300px;position:static}
 }
 @media (min-width:1000px){
   .card{grid-template-columns:410px 1fr;gap:48px;padding:36px}
